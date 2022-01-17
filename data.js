@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import faker from "faker";
+import faker from "@faker-js/faker";
 
 faker.seed(123);
 
