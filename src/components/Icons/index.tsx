@@ -99,6 +99,7 @@ export function AddPerson(props: React.HTMLAttributes<SVGElement>) {
 export function Hashtag(props: React.HTMLAttributes<SVGElement>) {
   return (
     <svg viewBox="0 0 24 24" {...props}>
+      <title>Hashtag</title>
       <path
         fill="currentColor"
         fillRule="evenodd"

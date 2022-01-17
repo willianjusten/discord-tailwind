@@ -59,7 +59,7 @@ export default function Server() {
                     return categoryIsOpen || channel.unread;
                   })
                   .map((channel) => (
-                    <ChannelLink channel={channel} key={channel.id} />
+                    <ChannelLink serverId={server.id} channel={channel} key={channel.id} />
                   ))}
               </div>
             </div>

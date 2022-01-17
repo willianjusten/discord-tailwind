@@ -1,23 +1,20 @@
 import * as Icons from "components/Icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { data, MessageData } from "../../../data";
 
 export type ChannelLinkProps = {
+  serverId: number
   channel: {
     id: number
     icon?: string
     label: string
-    description?: string
     unread?: boolean
-    messages: MessageData[]
   }
 }
 
-function ChannelLink({ channel }: ChannelLinkProps) {
+function ChannelLink({ serverId, channel }: ChannelLinkProps) {
   let Icon = channel.icon ? Icons[channel.icon as keyof typeof Icons] : Icons.Hashtag;
   let router = useRouter();
-  let server = data.find((server) => +server.id === +router.query.sid!);
   let active = +channel.id === +router.query.cid!;
 
   let state: keyof typeof classes = active
@@ -35,7 +32,7 @@ function ChannelLink({ channel }: ChannelLinkProps) {
   };
 
   return (
-    <Link href={`/servers/${server!.id}/channels/${channel.id}`}>
+    <Link href={`/servers/${serverId}/channels/${channel.id}`}>
       <a
         className={`${classes[state]} flex items-center px-2 mx-2 py-1 rounded group relative`}
       >

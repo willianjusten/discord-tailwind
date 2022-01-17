@@ -305,7 +305,7 @@ export const data = [
   },
 ];
 
-function getMessages() {
+export function getMessages() {
   return [...Array(faker.datatype.number({ min: 7, max: 25 }))]
     .map(() => {
       let user = faker.internet.userName();
