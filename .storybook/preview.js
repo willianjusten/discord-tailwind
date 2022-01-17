@@ -10,6 +10,9 @@ Object.defineProperty(NextImage, 'default', {
 })
 
 export const parameters = {
+  backgrounds: {
+    default: 'dark'
+  },
   nextRouter: {
     Provider: RouterContext.Provider
   },
