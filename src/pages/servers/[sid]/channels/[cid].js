@@ -1,8 +1,11 @@
-import * as Icons from "components/Icons";
-import { data } from "../../../../../data";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+
+import * as Icons from "components/Icons";
+import Message from 'components/Message'
+
+import { data } from "../../../../../data";
 
 export default function Server() {
   let [closedCategories, setClosedCategories] = useState([]);
@@ -198,14 +201,6 @@ function MessageWithUser({ message }) {
         </p>
         <p className="text-gray-100">{message.text}</p>
       </div>
-    </div>
-  );
-}
-
-function Message({ message }) {
-  return (
-    <div className="pl-4 pr-16 py-0.5 hover:bg-gray-950/[.07] leading-[22px]">
-      <p className="text-gray-100 pl-14">{message.text}</p>
     </div>
   );
 }
