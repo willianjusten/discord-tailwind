@@ -3,21 +3,24 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 import * as Icons from "components/Icons";
+import ServerHeader from "components/ServerHeader";
 import Message from 'components/Message'
 import MessageWithUser from 'components/MessageWithUser'
 
-import { data } from "../../../../../data";
+import { data, ServerData } from "../../../../../data";
+import ChannelLink from "components/ChannelLink";
 
 export default function Server() {
-  let [closedCategories, setClosedCategories] = useState([]);
+  let [closedCategories, setClosedCategories] = useState<Array<number>>([]);
   let router = useRouter();
-  let server = data.find((server) => +server.id === +router.query.sid);
+  let server: ServerData = data.find((server) => +server.id === +router.query.sid!)!;
+
   let channel = server.categories
     .map((c) => c.channels)
     .flat()
-    .find((channel) => +channel.id === +router.query.cid);
+    .find((channel) => +channel.id === +router.query.cid!);
 
-  function toggleCategory(categoryId) {
+  function toggleCategory(categoryId: number) {
     setClosedCategories((closedCategories) =>
       closedCategories.includes(categoryId)
         ? closedCategories.filter((id) => id !== categoryId)
@@ -28,14 +31,7 @@ export default function Server() {
   return (
     <>
       <div className="flex-col hidden bg-gray-800 md:flex w-60">
-        <button className="flex items-center h-12 px-4 font-semibold text-white shadow-sm font-title text-[15px] hover:bg-gray-550/[0.16] transition">
-          <div className="relative w-4 h-4 mr-1">
-            <Icons.Verified className="absolute w-4 h-4 text-gray-550" />
-            <Icons.Check className="absolute w-4 h-4" />
-          </div>
-          Tailwind CSS
-          <Icons.Chevron className="w-[18px] h-[18px] ml-auto opacity-80" />
-        </button>
+        <ServerHeader name={server.label} />
 
         <div className="flex-1 overflow-y-scroll scrollbar-hide font-medium text-gray-300 pt-3 space-y-[21px]">
           {server.categories.map((category) => (
@@ -46,9 +42,8 @@ export default function Server() {
                   className="flex items-center px-0.5 text-xs uppercase font-title tracking-wide hover:text-gray-100 w-full"
                 >
                   <Icons.Arrow
-                    className={`${
-                      closedCategories.includes(category.id) ? "-rotate-90" : ""
-                    } w-3 h-3 mr-0.5 transition duration-200`}
+                    className={`${closedCategories.includes(category.id) ? "-rotate-90" : ""
+                      } w-3 h-3 mr-0.5 transition duration-200`}
                   />
                   {category.label}
                 </button>
@@ -77,15 +72,15 @@ export default function Server() {
           <div className="flex items-center">
             <Icons.Hashtag className="w-6 h-6 mx-2 font-semibold text-gray-400" />
             <span className="mr-2 text-white font-title whitespace-nowrap">
-              {channel.label}
+              {channel?.label}
             </span>
           </div>
 
-          {channel.description && (
+          {channel?.description && (
             <>
               <div className="hidden md:block w-px h-6 mx-2 bg-white/[.06]"></div>
               <div className="hidden mx-2 text-sm font-medium text-gray-200 truncate md:block">
-                {channel.description}
+                {channel?.description}
               </div>
             </>
           )}
@@ -134,9 +129,9 @@ export default function Server() {
         </div>
 
         <div className="flex-1 overflow-y-scroll">
-          {channel.messages.map((message, i) => (
+          {channel?.messages.map((message, i) => (
             <div key={message.id}>
-              {i === 0 || message.user !== channel.messages[i - 1].user ? (
+              {i === 0 || message.user !== channel?.messages[i - 1].user ? (
                 <MessageWithUser message={message} />
               ) : (
                 <Message message={message} />
@@ -149,38 +144,5 @@ export default function Server() {
   );
 }
 
-function ChannelLink({ channel }) {
-  let Icon = channel.icon ? Icons[channel.icon] : Icons.Hashtag;
-  let router = useRouter();
-  let server = data.find((server) => +server.id === +router.query.sid);
-  let active = +channel.id === +router.query.cid;
-  let state = active
-    ? "active"
-    : channel.unread
-    ? "inactiveUnread"
-    : "inactiveRead";
-  let classes = {
-    active: "text-white bg-gray-550/[0.32]",
-    inactiveUnread:
-      "text-white hover:bg-gray-550/[0.16] active:bg-gray-550/[0.24]",
-    inactiveRead:
-      "text-gray-300 hover:text-gray-100 hover:bg-gray-550/[0.16] active:bg-gray-550/[0.24]",
-  };
-
-  return (
-    <Link href={`/servers/${server.id}/channels/${channel.id}`}>
-      <a
-        className={`${classes[state]} flex items-center px-2 mx-2 py-1 rounded group relative`}
-      >
-        {state === "inactiveUnread" && (
-          <div className="absolute left-0 w-1 h-2 -ml-2 bg-white rounded-r-full"></div>
-        )}
-        <Icon className="w-5 h-5 mr-1.5 text-gray-400" />
-        {channel.label}
-        <Icons.AddPerson className="w-4 h-4 ml-auto text-gray-200 opacity-0 hover:text-gray-100 group-hover:opacity-100" />
-      </a>
-    </Link>
-  );
-}
 
 

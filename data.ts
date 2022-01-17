@@ -3,6 +3,36 @@ import faker from "@faker-js/faker";
 
 faker.seed(123);
 
+export type MessageData = {
+  id: number
+  user: string
+  avatarUrl: string
+  date: string
+  text: string
+}
+
+export type ChannelData = {
+  id: number
+  label: string
+  description?: string
+  icon?: string
+  messages: MessageData[]
+  unread?: boolean
+}
+
+export type CategoriesData = {
+  id: number
+  label: string
+  channels: ChannelData[]
+}
+
+export type ServerData = {
+  id: number
+  label: string
+  img: string
+  categories: CategoriesData[]
+}
+
 export const data = [
   {
     id: 1,
