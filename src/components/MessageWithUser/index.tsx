@@ -15,8 +15,9 @@ function MessageWithUser({ message }: MessageWithUserProps) {
       <div className="relative mt-0.5 mr-4 w-10 h-10 rounded-full">
         <Image
           placeholder="blur"
-          className="rounded-full"
-          layout="fill"
+          className="mt-0.5 mr-4 w-10 h-10 rounded-full"
+          height={40}
+          width={40}
           src={message.avatarUrl}
           alt={message.user}
           blurDataURL={message.avatarUrl}
