@@ -1,6 +1,4 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 import * as Icons from "components/Icons";
 import ServerHeader from "components/ServerHeader";
@@ -8,10 +6,9 @@ import Message from 'components/Message'
 import MessageWithUser from 'components/MessageWithUser'
 
 import { data, ServerData } from "../../../../../data";
-import ChannelLink from "components/ChannelLink";
+import ChannelList from "components/ChannelList";
 
 export default function Server() {
-  let [closedCategories, setClosedCategories] = useState<Array<number>>([]);
   let router = useRouter();
   let server: ServerData = data.find((server) => +server.id === +router.query.sid!)!;
 
@@ -20,51 +17,12 @@ export default function Server() {
     .flat()
     .find((channel) => +channel.id === +router.query.cid!);
 
-  function toggleCategory(categoryId: number) {
-    setClosedCategories((closedCategories) =>
-      closedCategories.includes(categoryId)
-        ? closedCategories.filter((id) => id !== categoryId)
-        : [...closedCategories, categoryId]
-    );
-  }
-
   return (
     <>
       <div className="flex-col hidden bg-gray-800 md:flex w-60">
         <ServerHeader name={server.label} />
 
-        <div className="flex-1 overflow-y-scroll scrollbar-hide font-medium text-gray-300 pt-3 space-y-[21px]">
-          {server.categories.map((category) => (
-            <div key={category.id}>
-              {category.label && (
-                <button
-                  onClick={() => toggleCategory(category.id)}
-                  className="flex items-center px-0.5 text-xs uppercase font-title tracking-wide hover:text-gray-100 w-full"
-                >
-                  <Icons.Arrow
-                    className={`${closedCategories.includes(category.id) ? "-rotate-90" : ""
-                      } w-3 h-3 mr-0.5 transition duration-200`}
-                  />
-                  {category.label}
-                </button>
-              )}
-
-              <div className="space-y-0.5 mt-[5px]">
-                {category.channels
-                  .filter((channel) => {
-                    let categoryIsOpen = !closedCategories.includes(
-                      category.id
-                    );
-
-                    return categoryIsOpen || channel.unread;
-                  })
-                  .map((channel) => (
-                    <ChannelLink serverId={server.id} channel={channel} key={channel.id} />
-                  ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <ChannelList server={server} />
       </div>
 
       <div className="flex flex-col flex-1 flex-shrink min-w-0 bg-gray-700">
