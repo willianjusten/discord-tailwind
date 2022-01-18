@@ -6,7 +6,9 @@ export default {
   component: ServerHeader
 } as Meta
 
-export const Default: Story<ServerHeaderProps> = (args) => <ServerHeader {...args} />
+export const Default: Story<ServerHeaderProps> = (args) => (
+  <ServerHeader {...args} />
+)
 
 Default.args = {
   name: 'NextJS'

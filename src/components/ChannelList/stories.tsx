@@ -8,7 +8,9 @@ export default {
   component: ChannelList
 } as Meta
 
-export const Default: Story<ChannelListProps> = (args) => <ChannelList {...args} />
+export const Default: Story<ChannelListProps> = (args) => (
+  <ChannelList {...args} />
+)
 
 Default.args = {
   server: data[0]

@@ -6,13 +6,15 @@ export default {
   component: ChannelLink
 } as Meta
 
-export const Default: Story<ChannelLinkProps> = (args) => <ChannelLink {...args} />
+export const Default: Story<ChannelLinkProps> = (args) => (
+  <ChannelLink {...args} />
+)
 
 Default.args = {
   serverId: 1,
   channel: {
     id: 1,
-    label: "welcome",
-    icon: "Book"
-  },
+    label: 'welcome',
+    icon: 'Book'
+  }
 }

@@ -14,7 +14,6 @@ useRouter.mockImplementation(() => ({
   }
 }))
 
-
 describe('<ChannelList />', () => {
   it('should render the list', () => {
     render(<ChannelList server={data[0]} />)

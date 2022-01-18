@@ -1,7 +1,7 @@
-import { format } from "date-fns";
-import faker from "@faker-js/faker";
+import faker from '@faker-js/faker'
+import { format } from 'date-fns'
 
-faker.seed(123);
+faker.seed(123)
 
 export type MessageData = {
   id: number
@@ -36,291 +36,291 @@ export type ServerData = {
 export const data = [
   {
     id: 1,
-    label: "Tailwind CSS",
-    img: "tailwind.png",
+    label: 'Tailwind CSS',
+    img: 'tailwind.png',
     categories: [
       {
         id: 1,
-        label: "",
+        label: '',
         channels: [
           {
             id: 1,
-            label: "welcome",
+            label: 'welcome',
             description:
-              "Introduction to the Tailwind CSS framework and community.",
-            icon: "Book",
-            messages: getMessages(),
+              'Introduction to the Tailwind CSS framework and community.',
+            icon: 'Book',
+            messages: getMessages()
           },
           {
             id: 2,
-            label: "announcements",
-            icon: "Speakerphone",
-            messages: getMessages(),
-          },
-        ],
+            label: 'announcements',
+            icon: 'Speakerphone',
+            messages: getMessages()
+          }
+        ]
       },
       {
         id: 2,
-        label: "Tailwind CSS",
+        label: 'Tailwind CSS',
         channels: [
           {
             id: 3,
-            label: "general",
+            label: 'general',
             description:
-              "General discussion of Tailwind CSS (please move off-topic discussion in the off-topic channels).",
+              'General discussion of Tailwind CSS (please move off-topic discussion in the off-topic channels).',
             unread: true,
-            messages: getMessages(),
+            messages: getMessages()
           },
           {
             id: 4,
-            label: "plugins",
-            description: "Tailwind CSS plugins.",
+            label: 'plugins',
+            description: 'Tailwind CSS plugins.',
             unread: true,
-            messages: getMessages(),
+            messages: getMessages()
           },
           {
             id: 5,
-            label: "help",
+            label: 'help',
             description:
-              "Help with Tailwind CSS and build process integration.",
+              'Help with Tailwind CSS and build process integration.',
             unread: true,
-            messages: getMessages(),
+            messages: getMessages()
           },
           {
             id: 6,
-            label: "internals",
-            description: "Development of the Tailwind CSS framework itself.",
-            messages: getMessages(),
-          },
-        ],
+            label: 'internals',
+            description: 'Development of the Tailwind CSS framework itself.',
+            messages: getMessages()
+          }
+        ]
       },
       {
         id: 3,
-        label: "Tailwind Labs",
+        label: 'Tailwind Labs',
         channels: [
           {
             id: 7,
-            label: "tailwind-ui",
-            description: "General discussion of Tailwind UI.",
-            messages: getMessages(),
+            label: 'tailwind-ui',
+            description: 'General discussion of Tailwind UI.',
+            messages: getMessages()
           },
           {
             id: 8,
-            label: "headless-ui",
-            description: "General discussion of Headless UI.",
-            messages: getMessages(),
+            label: 'headless-ui',
+            description: 'General discussion of Headless UI.',
+            messages: getMessages()
           },
           {
             id: 9,
-            label: "refactoring-ui",
-            description: "General discussion of Refactoring UI.",
+            label: 'refactoring-ui',
+            description: 'General discussion of Refactoring UI.',
             unread: true,
-            messages: getMessages(),
+            messages: getMessages()
           },
           {
             id: 10,
-            label: "heroicons",
-            description: "General discussion of Heroicons.",
+            label: 'heroicons',
+            description: 'General discussion of Heroicons.',
             unread: true,
-            messages: getMessages(),
-          },
-        ],
+            messages: getMessages()
+          }
+        ]
       },
       {
         id: 4,
-        label: "Off topic",
+        label: 'Off topic',
         channels: [
           {
             id: 11,
-            label: "design",
-            description: "General discussion of web design.",
-            messages: getMessages(),
+            label: 'design',
+            description: 'General discussion of web design.',
+            messages: getMessages()
           },
           {
             id: 12,
-            label: "development",
-            description: "General discussion of web development.",
-            messages: getMessages(),
+            label: 'development',
+            description: 'General discussion of web development.',
+            messages: getMessages()
           },
           {
             id: 13,
-            label: "random",
-            description: "General discussion of everything else!",
+            label: 'random',
+            description: 'General discussion of everything else!',
             unread: true,
-            messages: getMessages(),
-          },
-        ],
+            messages: getMessages()
+          }
+        ]
       },
       {
         id: 5,
-        label: "Community",
+        label: 'Community',
         channels: [
           {
             id: 14,
-            label: "jobs",
+            label: 'jobs',
             description:
-              "Job board. Please put [HIRING] or [FOR HIRE] at the beginning of your post.",
-            messages: getMessages(),
+              'Job board. Please put [HIRING] or [FOR HIRE] at the beginning of your post.',
+            messages: getMessages()
           },
           {
             id: 15,
-            label: "showcase",
-            description: "Share your projects built with Tailwind CSS!",
+            label: 'showcase',
+            description: 'Share your projects built with Tailwind CSS!',
             unread: true,
-            messages: getMessages(),
+            messages: getMessages()
           },
           {
             id: 16,
-            label: "bots",
-            description: "Bot spam containment.",
-            messages: getMessages(),
-          },
-        ],
-      },
-    ],
+            label: 'bots',
+            description: 'Bot spam containment.',
+            messages: getMessages()
+          }
+        ]
+      }
+    ]
   },
   {
     id: 2,
-    label: "Next.js",
-    img: "next.png",
+    label: 'Next.js',
+    img: 'next.png',
     categories: [
       {
         id: 6,
-        label: "",
+        label: '',
         channels: [
           {
             id: 17,
-            label: "welcome",
-            icon: "Book",
-            messages: getMessages(),
+            label: 'welcome',
+            icon: 'Book',
+            messages: getMessages()
           },
           {
             id: 18,
-            label: "announcements",
-            icon: "Speakerphone",
+            label: 'announcements',
+            icon: 'Speakerphone',
             description:
-              "Announcements related to this Discord server and Next.js",
-            messages: getMessages(),
+              'Announcements related to this Discord server and Next.js',
+            messages: getMessages()
           },
           {
             id: 19,
-            label: "introductions",
+            label: 'introductions',
             unread: true,
             description:
-              "Welcome to the server! Feel free to introduce yourself",
-            messages: getMessages(),
-          },
-        ],
+              'Welcome to the server! Feel free to introduce yourself',
+            messages: getMessages()
+          }
+        ]
       },
       {
         id: 7,
-        label: "Need-Help",
+        label: 'Need-Help',
         channels: [
           {
             id: 20,
-            label: "community-help",
+            label: 'community-help',
             description:
-              "Members of the community can help each other here, but we recommend checking GitHub discussions first: ",
-            messages: getMessages(),
-          },
-        ],
+              'Members of the community can help each other here, but we recommend checking GitHub discussions first: ',
+            messages: getMessages()
+          }
+        ]
       },
       {
         id: 8,
-        label: "Community",
+        label: 'Community',
         channels: [
           {
             id: 21,
-            label: "general",
-            icon: "HashtagWithSpeechBubble",
-            description: "Discussions about Next.js in general",
-            messages: getMessages(),
+            label: 'general',
+            icon: 'HashtagWithSpeechBubble',
+            description: 'Discussions about Next.js in general',
+            messages: getMessages()
           },
           {
             id: 22,
-            label: "off-topic",
+            label: 'off-topic',
             unread: true,
             description:
-              "Discussions about topics not related to Next.js or other channels",
-            messages: getMessages(),
+              'Discussions about topics not related to Next.js or other channels',
+            messages: getMessages()
           },
           {
             id: 23,
-            label: "showcase",
+            label: 'showcase',
             unread: true,
-            messages: getMessages(),
+            messages: getMessages()
           },
           {
             id: 24,
-            label: "jobs-board",
+            label: 'jobs-board',
             description:
-              "Is your company looking for Next.js developers? Discuss here!",
-            messages: getMessages(),
+              'Is your company looking for Next.js developers? Discuss here!',
+            messages: getMessages()
           },
           {
             id: 25,
-            label: "hire-me",
+            label: 'hire-me',
             unread: true,
-            description: "Are you a developer looking to work with Next.js?",
-            messages: getMessages(),
+            description: 'Are you a developer looking to work with Next.js?',
+            messages: getMessages()
           },
           {
             id: 26,
-            label: "makers",
+            label: 'makers',
             description:
-              "Share as you build in public. Welcoming all makers and indie hackers.",
-            messages: getMessages(),
+              'Share as you build in public. Welcoming all makers and indie hackers.',
+            messages: getMessages()
           },
           {
             id: 27,
-            label: "moderation-feedback",
+            label: 'moderation-feedback',
             description:
-              "Discussion about this Discord server and moderation topics",
-            messages: getMessages(),
-          },
-        ],
-      },
-    ],
+              'Discussion about this Discord server and moderation topics',
+            messages: getMessages()
+          }
+        ]
+      }
+    ]
   },
   {
     id: 3,
-    label: "Mirage JS",
-    img: "mirage.png",
+    label: 'Mirage JS',
+    img: 'mirage.png',
     categories: [
       {
         id: 9,
-        label: "Text Channels",
+        label: 'Text Channels',
         channels: [
-          { id: 28, label: "general", messages: getMessages() },
-          { id: 29, label: "graphql", unread: true, messages: getMessages() },
+          { id: 28, label: 'general', messages: getMessages() },
+          { id: 29, label: 'graphql', unread: true, messages: getMessages() },
           {
             id: 30,
-            label: "typescript",
+            label: 'typescript',
             unread: true,
-            messages: getMessages(),
-          },
-        ],
-      },
-    ],
-  },
-];
+            messages: getMessages()
+          }
+        ]
+      }
+    ]
+  }
+]
 
 export function getMessages() {
   return [...Array(faker.datatype.number({ min: 7, max: 25 }))]
     .map(() => {
-      let user = faker.internet.userName();
+      let user = faker.internet.userName()
       let avatarUrl = `/avatars/${faker.datatype.number({
         min: 0,
-        max: 25,
-      })}.jpg`;
+        max: 25
+      })}.jpg`
 
       return [...Array(faker.datatype.number({ min: 1, max: 4 }))].map(() => ({
         id: faker.datatype.number(),
         user,
         avatarUrl,
-        date: format(new Date(faker.date.past()), "MM/dd/yyyy"),
-        text: faker.lorem.sentences(3),
-      }));
+        date: format(new Date(faker.date.past()), 'MM/dd/yyyy'),
+        text: faker.lorem.sentences(3)
+      }))
     })
-    .flat();
+    .flat()
 }

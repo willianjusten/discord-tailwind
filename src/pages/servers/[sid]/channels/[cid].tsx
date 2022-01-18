@@ -1,33 +1,33 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router'
 
-import ChannelTopbar from "components/ChannelTopbar";
-import ChannelList from "components/ChannelList";
-import ServerHeader from "components/ServerHeader";
+import ChannelList from 'components/ChannelList'
+import ChannelTopbar from 'components/ChannelTopbar'
 import Message from 'components/Message'
 import MessageWithUser from 'components/MessageWithUser'
+import ServerHeader from 'components/ServerHeader'
 
-import { data } from "data";
+import { data } from 'data'
 
 export default function Server() {
-  let router = useRouter();
-  let server = data.find((server) => +server.id === +router.query.sid!)!;
+  let router = useRouter()
+  let server = data.find((server) => +server.id === +router.query.sid!)!
 
   let channel = server.categories
     .map((c) => c.channels)
     .flat()
-    .find((channel) => +channel.id === +router.query.cid!);
+    .find((channel) => +channel.id === +router.query.cid!)
 
   return (
     <>
-      <div className="flex-col hidden bg-gray-800 md:flex w-60">
+      <div className="hidden flex-col w-60 bg-gray-800 md:flex">
         <ServerHeader name={server.label} />
         <ChannelList server={server} />
       </div>
 
-      <div className="flex flex-col flex-1 flex-shrink min-w-0 bg-gray-700">
+      <div className="flex flex-col flex-1 shrink min-w-0 bg-gray-700">
         <ChannelTopbar channel={channel} />
 
-        <div className="flex-1 overflow-y-scroll">
+        <div className="overflow-y-scroll flex-1">
           {channel?.messages.map((message, i) => (
             <div key={message.id}>
               {i === 0 || message.user !== channel?.messages[i - 1].user ? (
@@ -40,8 +40,5 @@ export default function Server() {
         </div>
       </div>
     </>
-  );
+  )
 }
-
-
-

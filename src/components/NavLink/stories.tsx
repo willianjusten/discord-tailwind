@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react'
+import Image from 'next/image'
 import NavLink, { NavLinkProps } from '.'
 
 export default {
@@ -14,7 +15,7 @@ export const Default: Story<NavLinkProps> = (args) => <NavLink {...args} />
 
 export const WithImage: Story<NavLinkProps> = (args) => (
   <NavLink {...args}>
-    <img src="/servers/tailwind.png" />
+    <Image src="/servers/tailwind.png" width={24} height={24} alt="tailwind" />
   </NavLink>
 )
 

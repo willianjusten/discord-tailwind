@@ -14,16 +14,17 @@ export const AllIcons: Story = (args) => {
 
   return (
     <div className="grid gap-4 md:grid-cols-4">
-      {
-        icons.map((iconIndex, i) => (
-          <div key={i} className='flex flex-col justify-center items-center p-4 bg-slate-200'>
-            {Icons[iconIndex as keyof typeof Icons]({
-              ...args
-            })}
-            <span className='mt-4 text-slate-900 font-semibold'>{`<${iconIndex}/>`}</span>
-          </div>
-        ))
-      }
+      {icons.map((iconIndex, i) => (
+        <div
+          key={i}
+          className="flex flex-col justify-center items-center p-4 bg-slate-200"
+        >
+          {Icons[iconIndex as keyof typeof Icons]({
+            ...args
+          })}
+          <span className="mt-4 font-semibold text-slate-900">{`<${iconIndex}/>`}</span>
+        </div>
+      ))}
     </div>
   )
 }

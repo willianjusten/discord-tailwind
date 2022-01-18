@@ -6,7 +6,9 @@ export default {
   component: MessageWithUser
 } as Meta
 
-export const Default: Story<MessageWithUserProps> = (args) => <MessageWithUser {...args} />
+export const Default: Story<MessageWithUserProps> = (args) => (
+  <MessageWithUser {...args} />
+)
 
 Default.args = {
   message: {

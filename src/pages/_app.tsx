@@ -1,24 +1,25 @@
 import type { AppProps } from 'next/app'
-import Head from "next/head";
+import Head from 'next/head'
 
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
-import { Discord } from "components/Icons";
-import NavLink from 'components/NavLink';
+import { Discord } from 'components/Icons'
+import NavLink from 'components/NavLink'
 
-import { data } from "data";
+import { data } from 'data'
 
 import 'styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  let router = useRouter();
-  let [isFirstRender, setIsFirstRender] = useState(true);
+  let router = useRouter()
+  let [isFirstRender, setIsFirstRender] = useState(true)
   useEffect(() => {
-    setIsFirstRender(false);
-  }, []);
+    setIsFirstRender(false)
+  }, [])
   if (!router.isReady || isFirstRender) {
-    return null;
+    return null
   }
 
   return (
@@ -29,12 +30,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <div className="flex h-screen text-gray-100">
-        <div className="hidden p-3 space-y-2 overflow-y-scroll scrollbar-hide bg-gray-900 md:block">
+        <div className="hidden overflow-y-scroll p-3 space-y-2 bg-gray-900 md:block scrollbar-hide">
           <NavLink href="/">
-            <Discord className="h-5 w-7" />
+            <Discord className="w-7 h-5" />
           </NavLink>
 
-          <hr className="border-t-white/[.06] border-t-2 rounded mx-2" />
+          <hr className="mx-2 rounded border-t-2 border-t-white/[.06]" />
 
           {data.map((server) => (
             <NavLink
@@ -42,7 +43,12 @@ function MyApp({ Component, pageProps }: AppProps) {
               active={+router.query.sid! === +server.id}
               key={server.id}
             >
-              <img src={`/servers/${server.img}`} alt="" />
+              <Image
+                src={`/servers/${server.img}`}
+                alt={server.label}
+                width={48}
+                height={48}
+              />
             </NavLink>
           ))}
         </div>
@@ -50,7 +56,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </div>
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

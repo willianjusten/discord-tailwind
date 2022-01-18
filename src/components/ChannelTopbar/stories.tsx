@@ -6,7 +6,9 @@ export default {
   component: ChannelTopbar
 } as Meta
 
-export const Default: Story<ChannelTopbarProps> = (args) => <ChannelTopbar {...args} />
+export const Default: Story<ChannelTopbarProps> = (args) => (
+  <ChannelTopbar {...args} />
+)
 
 Default.args = {
   channel: {
