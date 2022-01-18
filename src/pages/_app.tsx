@@ -15,6 +15,7 @@ import 'styles/globals.css'
 function MyApp({ Component, pageProps }: AppProps) {
   let router = useRouter()
   let [isFirstRender, setIsFirstRender] = useState(true)
+
   useEffect(() => {
     setIsFirstRender(false)
   }, [])
