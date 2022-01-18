@@ -14,10 +14,12 @@ function MessageWithUser({ message }: MessageWithUserProps) {
     <div className="flex py-0.5 pr-16 pl-4 mt-[17px] leading-[22px] hover:bg-gray-950/[.07]">
       <div className="relative mt-0.5 mr-4 w-10 h-10 rounded-full">
         <Image
+          placeholder="blur"
           className="rounded-full"
           layout="fill"
           src={message.avatarUrl}
           alt={message.user}
+          blurDataURL={message.avatarUrl}
         />
       </div>
       <div>

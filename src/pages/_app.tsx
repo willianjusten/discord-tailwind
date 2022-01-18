@@ -49,6 +49,8 @@ function MyApp({ Component, pageProps }: AppProps) {
                 alt={server.label}
                 width={48}
                 height={48}
+                placeholder="blur"
+                blurDataURL={`/servers/${server.img}`}
               />
             </NavLink>
           ))}
