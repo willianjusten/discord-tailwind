@@ -1,6 +1,6 @@
 ## Discord Tailwind
 
-> Just a project to clone some 
+> Just a Discord clone made with TailwindCSS. Initial idea from [egghead course](https://egghead.io/courses/craft-scalable-custom-made-interfaces-with-tailwind-css-8dfee898) with some tweaks to have tests and better component separation.
 
 ## What is inside?
 
