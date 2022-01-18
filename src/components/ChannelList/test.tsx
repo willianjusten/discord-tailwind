@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 
 import ChannelList from '.'
 
-import { data } from '../../../data'
+import { data } from 'data'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 let cid = 1

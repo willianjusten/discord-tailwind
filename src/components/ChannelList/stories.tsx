@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import ChannelList, { ChannelListProps } from '.'
 
-import { data } from '../../../data'
+import { data } from 'data'
 
 export default {
   title: 'ChannelList',

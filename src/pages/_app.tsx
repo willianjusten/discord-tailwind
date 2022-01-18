@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { Discord } from "components/Icons";
 import NavLink from 'components/NavLink';
 
-import { data } from "../../data";
+import { data } from "data";
 
 import 'styles/globals.css'
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ChannelLink from "components/ChannelLink";
 import { Arrow } from "components/Icons";
-import { ServerData } from '../../../data'
+import { ServerData } from 'data'
 
 export type ChannelListProps = {
   server: ServerData

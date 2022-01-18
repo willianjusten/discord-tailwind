@@ -6,7 +6,7 @@ import ServerHeader from "components/ServerHeader";
 import Message from 'components/Message'
 import MessageWithUser from 'components/MessageWithUser'
 
-import { data } from "../../../../../data";
+import { data } from "data";
 
 export default function Server() {
   let router = useRouter();

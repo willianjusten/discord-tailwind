@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
 import ChannelLink, { ChannelLinkProps } from '.'
-import { getMessages } from '../../../data'
 
 export default {
   title: 'ChannelLink',
