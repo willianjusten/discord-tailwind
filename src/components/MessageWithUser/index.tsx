@@ -12,7 +12,7 @@ export type MessageWithUserProps = {
 function MessageWithUser({ message }: MessageWithUserProps) {
   return (
     <div className="flex py-0.5 pr-16 pl-4 mt-[17px] leading-[22px] hover:bg-gray-950/[.07]">
-      <div className="overflow-hidden relative mt-0.5 mr-4 w-10 h-10 rounded-full">
+      <div className="overflow-hidden relative mt-0.5 mr-4 w-10 min-w-fit h-10 rounded-full">
         <Image
           placeholder="blur"
           layout="fixed"
